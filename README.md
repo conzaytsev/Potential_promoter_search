@@ -46,6 +46,7 @@ Promoter database with extended promoter region in FASTA format should be placed
 
 
 ## Run order
+
 	python3 chromosomes_to_single_line.py
 
 Converts chromosome files to supported format.
@@ -76,17 +77,17 @@ journal.txt contains class volumes for each of n_sets on each iteration.
 overfit.txt contains only best class volumes for each of classes. 
 
 As an example:
-0
-880   7623   8.662
-986   7732   7.842
-1170   9487   8.109
-1173   8833   7.530
+	0
+	880   7623   8.662
+	986   7732   7.842
+	1170   9487   8.109
+	1173   8833   7.530
 
 
 
-1
-224   1272   5.679
-225   1176   5.227
+	1
+	224   1272   5.679
+	225   1176   5.227
 
 Here, 0 is number of class. 
 First column contains best volumes for the 0 class when scanning learn sample from database_filename. 
@@ -105,11 +106,11 @@ Calculates Monte Carlo statistics for potential promoters Z value estimation.
 Scans chromosome for potential promoters.
 
 chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chromosome ≤ N ≤ max_chromosome).
-spiral: 1 -- + strand, standard order
-	2 -- + strand, reversed order
-	3 -- - strand, standard order
-	4 -- - strand, reversed order
-matrix: class matrix number (0, 1, ...)
+	spiral: 1 -- + strand, standard order
+		2 -- + strand, reversed order
+		3 -- - strand, standard order
+		4 -- - strand, reversed order
+	matrix: class matrix number (0, 1, ...)
 
 Results are saved to results/chromosome_number/spiral
 
