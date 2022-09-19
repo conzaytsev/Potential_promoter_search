@@ -47,24 +47,23 @@ Promoter database with extended promoter region in FASTA format should be placed
 
 ## Run order
 
+Convert chromosome files to supported format.
+
 	python3 chromosomes_to_single_line.py
 
-Converts chromosome files to supported format.
-
+Create files with mixed chromosomes for false positive level estimation.
 
 	python3 chromosome_mix.py
 
-Creates files with mixed chromosomes for false positive level estimation.
-
+Sort Promoter database and Extended promoter database in the same order.
 
 	python3 promoter_database_sort.py
 
-Sorts Promoter database and Extended promoter database in the same order.
 
+Create promoter sequence classes and their matrices.
 
 	python3 genetic_partition_extended.py
 
-Creates promoter sequences classes and their matrices.
 
 Calculated position weight matrices for all the classes are saved to pair_matrix and single_matrix directories. 
 Matrices in pair_matrix directory include correlations between neighbouring nucleotides. 
@@ -76,7 +75,8 @@ For example, when last matrix in pair_matrix folder is 1.pair_matrix.json, then 
 journal.txt contains class volumes for each of n_sets on each iteration.
 overfit.txt contains only best class volumes for each of classes. 
 
-	As an example:
+	Example:
+	
 	0
 	880   7623   8.662
 	986   7732   7.842
@@ -96,14 +96,15 @@ Third column value is fraction between second column value and first column valu
 When class calculation is finished, calculation of the next class starts.
 
 
+Calculate Monte Carlo statistics for potential promoters Z value estimation.
+
 	pypy3 z_statistics.py
 
-Calculates Monte Carlo statistics for potential promoters Z value estimation.
 
+Scan chromosome for potential promoters.
 
 	pypy3 promoter_search.py chromosome spiral matrix
 
-Scans chromosome for potential promoters.
 
 chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chromosome ≤ N ≤ max_chromosome).
 	spiral: 1 -- + strand, standard order
@@ -115,9 +116,10 @@ chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chrom
 Results are saved to results/chromosome_number/spiral
 
 
+Remove intersecting results.
+
 	pypy3 results_rank_intersect.py chromosome spiral
 
-Removes intersecting results.
 
 Intersected results are saved to results/chromosome_number
 
