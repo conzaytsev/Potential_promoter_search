@@ -30,6 +30,7 @@ Parameters are set in the config.py file.
 ## Requirements
 
 `Python 3.7` with `numpy`, `scipy`, `requests`, `beautifulsoup4`
+
 `PyPy 3.7`
 
 ## Input files
