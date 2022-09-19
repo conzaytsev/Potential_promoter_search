@@ -1,5 +1,23 @@
-# Potential_promoter_search
-Here are several programs, which can be used to perform promoter sequence classification and potential promoters search in genome.
+# Potential promoter search
+
+	Copyright (C) 2022 Konstantin Zaytsev
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## Introduction
+
+Here are several programs, which can be used for promoter sequence classification and potential promoters search in genome.
 Promoter classification is done using genetic algorithm and MAHDS method.
 
 MAHDS calculation is performed on a remote server, which is accessed via web connection.
@@ -7,18 +25,20 @@ Login and password for server calculations are required. They can be obtained at
 
 Potential promoter search is done using pairwise alignments between created matrices for promoter classes and genome sequences.
 
-Software required to run these programs:
+Parameters are set in the config.py file.
+
+## Requirements
+
 	Python 3.7 with numpy, scipy, requests, beautifulsoup4
 	PyPy 3.7
 
-Parameters are set in the config.py file.
+## Input files
 
-Required input files:
 	Chromosomes in FASTA format should be placed in chromosomes/ directory.
 	Promoter database in FASTA format should be placed in / directory.
 	Promoter database with extended promoter region in FASTA format should be placed in / directory.
 
-Run order:
+## Run order
 	python3 chromosomes_to_single_line.py
 
 		Converts chromosome files to supported format.
@@ -94,14 +114,14 @@ Run order:
 		Intersected results are saved to results/chromosome_number
 
 
-WARNING
+## WARNING
 	genetic_partition_extended.py and parallel_promoter_search.py require a lot of resources and lots of time.
 	All of these were run on a system with 4 x Intel Xeon Platinum 8270 (104 cores in total). 
 	It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chromosomes.
 
 
 
-PARAMETERS:
+## PARAMETERS
 	min_chromosome -- smallest chromosome number.
 
 	max_chromosome -- largest chromosome number. 
