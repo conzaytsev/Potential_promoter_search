@@ -47,23 +47,24 @@ Promoter database with extended promoter region in FASTA format should be placed
 
 ## Run order
 
-Convert chromosome files to supported format.
+Convert chromosome files to supported format:
 
 	python3 chromosomes_to_single_line.py
 
-Create files with mixed chromosomes for false positive level estimation.
+
+Create files with mixed chromosomes for false positive level estimation:
 
 	python3 chromosome_mix.py
 
-Sort Promoter database and Extended promoter database in the same order.
+
+Sort Promoter database and Extended promoter database in the same order:
 
 	python3 promoter_database_sort.py
 
 
-Create promoter sequence classes and their matrices.
+Create promoter sequence classes and their matrices:
 
 	python3 genetic_partition_extended.py
-
 
 Calculated position weight matrices for all the classes are saved to pair_matrix and single_matrix directories. 
 Matrices in pair_matrix directory include correlations between neighbouring nucleotides. 
@@ -96,15 +97,14 @@ Third column value is fraction between second column value and first column valu
 When class calculation is finished, calculation of the next class starts.
 
 
-Calculate Monte Carlo statistics for potential promoters Z value estimation.
+Calculate Monte Carlo statistics for potential promoters Z value estimation:
 
 	pypy3 z_statistics.py
 
 
-Scan chromosome for potential promoters.
+Scan chromosome for potential promoters:
 
 	pypy3 promoter_search.py chromosome spiral matrix
-
 
 chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chromosome ≤ N ≤ max_chromosome).
 	spiral: 1 -- + strand, standard order
@@ -116,10 +116,9 @@ chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chrom
 Results are saved to results/chromosome_number/spiral
 
 
-Remove intersecting results.
+Remove intersecting results:
 
 	pypy3 results_rank_intersect.py chromosome spiral
-
 
 Intersected results are saved to results/chromosome_number
 
