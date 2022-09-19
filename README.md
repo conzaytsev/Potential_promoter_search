@@ -208,3 +208,16 @@ It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chro
 
 	| `cores` | number of threads used for calculation.
 	Used in genetic_partition_extended.py, z_statistics.py, parallel_promoter_search.py.
+
+| Short | Full           | Description                                                               | Default Value              |
+| ----- | -------------- | ------------------------------------------------------------------------- | -------------------------- |
+| `-p`  | `--port`       | The port of the printing server that clients will be connect to           | 631                        |
+| `-n`  | `--name`       | The name of the printer that will be broadcasts to the local network      | "Untitled Bonjour Printer" |
+| `-l`  | `--location`   | The notes which will be shown as the location of the printer              | ""                         |
+| `-q`  | `--queue`      | The queue on the printing server which clients will be communicating with | "ipp/print"                |
+| `-c`  | `--color`      | Broadcast this printer as a color printer                                 | false                      |
+| `-d`  | `--duplex`     | Broadcast this printer as duplex supported                                | false                      |
+| `-m`  | `--mime-types` | Specify additional supported MIME types beside 'image/urf'.               |                            |
+| `-o`  | `--txt-record` | Add additional txt records. (E.g. -o you=me)                              |                            |
+| `-h`  | `--help`       | Show help message                                                         |                            |
+| `-a`  | `--automatic`  | Automatically resolve and configure printer from ip address               | false                      |
