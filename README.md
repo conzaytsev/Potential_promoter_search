@@ -142,71 +142,70 @@ It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chro
 `chromosome_extension` -- name of chromosome files after the number. 
                           (Full name should be chromosome_filename + number + chromosome_extension)
 
-promoter_database_filename -- file with promoter database in FASTA format. 
-All promoters should have coordinates from -499 to 100.
+`promoter_database_filename` -- file with promoter database in FASTA format. 
+                                All promoters should have coordinates from -499 to 100.
 
-extended_promoter_database_filename -- file with FASTA promoter database. 
-Promoters should have coordinates from -499 + start_coordinate - extension to end_coordinate - 500 + extension. 
-Promoters in this database should be sorted in the same order, as promoters from database_filename.
+`extended_promoter_database_filename` -- file with FASTA promoter database. 
+                                         Promoters should have coordinates from -499 + start_coordinate - extension to end_coordinate - 500 + extension. 
+                                         Promoters in this database should be sorted in the same order, as promoters from database_filename.
 
-mahds_login -- login for MAHDS server.
+`mahds_login` -- login for MAHDS server.
 
-mahds_password -- password for MAHDS server.
+`mahds_password` -- password for MAHDS server.
 
-classifier_mixed_chromosome -- mixed chromosome number. 
-Mixed chromosome is used to calculate statistical significance value. 
+`classifier_mixed_chromosome` -- mixed chromosome number. 
+                                 Mixed chromosome is used to calculate statistical significance value. 
 
-n_sets -- number of promoter sets for genetic algorithm.
+`n_sets` -- number of promoter sets for genetic algorithm.
 
-set_size -- number of promoters in each set.
+`set_size` -- number of promoters in each set.
 
-n_children -- number of new sequence sets generated on each iteration of the algorithm.
+`n_children` -- number of new sequence sets generated on each iteration of the algorithm.
 
-mut_per -- percentage of mutations in each new set.
+`mut_per` -- percentage of mutations in each new set.
 
-mut_bal -- balance between type 1 and 2 mutations in new sets. 
-0 -> all mutations are type 1, 100 -> all mutations are type 2.
+`mut_bal` -- balance between type 1 and 2 mutations in new sets. 
+             0 -> all mutations are type 1, 100 -> all mutations are type 2.
 
-Kd -- normalization parameter for position weight matrices.
+`Kd` -- normalization parameter for position weight matrices.
 
-R2 -- normalization parameter for position weight matrices.
+`R2` -- normalization parameter for position weight matrices.
 
-learn_partition -- maximum volume of learn database sample as a fraction of full database volume.
+`learn_partition` -- maximum volume of learn database sample as a fraction of full database volume.
 
-min_set -- minimum volume of learn database sample as number of sequences.
+`min_set` -- minimum volume of learn database sample as number of sequences.
 
-iteration_limit -- number of algorithm iterations without improvement for stopping class selection.
+`iteration_limit` -- number of algorithm iterations without improvement for stopping class selection.
 
-start_coordinate -- coordinate of the first nucleotide for position weight matrix calculation as its position in sequence (0..599).
+`start_coordinate` -- coordinate of the first nucleotide for position weight matrix calculation as its position in sequence (0..599).
 
-end_coordinate -- coordinate of the last nucleotide for position weight matrix calculation as its position in sequence (0..599).
+`end_coordinate` -- coordinate of the last nucleotide for position weight matrix calculation as its position in sequence (0..599).
 
-extension -- half difference between extended_database_filename sequences length and end_coordinate - start_coordinate.
+`extension` -- half difference between extended_database_filename sequences length and end_coordinate - start_coordinate.
 
-intersection_level -- minimum intersection between extended aligned sequence and its -499:20 coordinates as a fraction of its length.
+`intersection_level` -- minimum intersection between extended aligned sequence and its -499:20 coordinates as a fraction of its length.
 
-classes -- number of classes, created by genetic_partition_extended.py and used for potential promoters search.
+`classes` -- number of classes, created by genetic_partition_extended.py and used for potential promoters search.
 
-z_statistics_sample_size -- volume of generated statistics for statistical significance calculation.
+`z_statistics_sample_size` -- volume of generated statistics for statistical significance calculation.
 
-gap_start_fine -- gap for starting a gap in a sequence to position weight matrix alignment.
+`gap_start_fine` -- gap for starting a gap in a sequence to position weight matrix alignment.
 
-gap_continue_fine -- gap for continuing an open gap in a sequence to position weight matrix alignment.
+`gap_continue_fine` -- gap for continuing an open gap in a sequence to position weight matrix alignment.
 
-query_length -- length of the window for chromosome scanning.
+`query_length` -- length of the window for chromosome scanning.
 
-min_length -- minimum alignment length for class selection.
+`min_length` -- minimum alignment length for class selection.
 
-z_threshold -- minimum statistical significance value for class definition.
+`z_threshold` -- minimum statistical significance value for class definition.
 
-database_corridor_width -- width of the corridor for alignments with sequences from promoter_database_filename. 
-Maximum distance from main diagonal. 
-Used for scanning database_filename.
+`database_corridor_width` -- width of the corridor for alignments with sequences from promoter_database_filename. 
+                             Maximum distance from main diagonal. 
+                             Used for scanning database_filename.
 
-extended_corridor_width -- width of the corridor for alignments with sequences from extended_promoter_database_filename.
+`extended_corridor_width` -- width of the corridor for alignments with sequences from extended_promoter_database_filename.
 
-chromosome_corridor_width -- width of the corridor for potential promoters search in chromosomes.
+`chromosome_corridor_width` -- width of the corridor for potential promoters search in chromosomes.
 
-cores -- number of threads used for calculation.
-Used in genetic_partition_extended.py, z_statistics.py, parallel_promoter_search.py.
-
+`cores` -- number of threads used for calculation.
+           Used in genetic_partition_extended.py, z_statistics.py, parallel_promoter_search.py.
