@@ -76,7 +76,7 @@ For example, when last matrix in pair_matrix folder is 1.pair_matrix.json, then 
 journal.txt contains class volumes for each of n_sets on each iteration.
 overfit.txt contains only best class volumes for each of classes. 
 
-As an example:
+	As an example:
 	0
 	880   7623   8.662
 	986   7732   7.842
