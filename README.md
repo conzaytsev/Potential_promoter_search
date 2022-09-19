@@ -29,89 +29,89 @@ Parameters are set in the config.py file.
 
 ## Requirements
 
-	Python 3.7 with numpy, scipy, requests, beautifulsoup4
-	PyPy 3.7
+`Python 3.7` with `numpy`, `scipy`, `requests`, `beautifulsoup4`
+`PyPy 3.7`
 
 ## Input files
 
-	Chromosomes in FASTA format should be placed in chromosomes/ directory.
-	Promoter database in FASTA format should be placed in / directory.
-	Promoter database with extended promoter region in FASTA format should be placed in / directory.
+Chromosomes in FASTA format should be placed in chromosomes/ directory.
+Promoter database in FASTA format should be placed in / directory.
+Promoter database with extended promoter region in FASTA format should be placed in / directory.
 
 ## Run order
-	python3 chromosomes_to_single_line.py
+python3 chromosomes_to_single_line.py
 
-		Converts chromosome files to supported format.
-
-
-	python3 chromosome_mix.py
-
-		Creates files with mixed chromosomes for false positive level estimation.
+	Converts chromosome files to supported format.
 
 
-	python3 promoter_database_sort.py
+python3 chromosome_mix.py
 
-		Sorts Promoter database and Extended promoter database in the same order.
-
-
-	python3 genetic_partition_extended.py
-
-		Creates promoter sequences classes and their matrices.
-		
-		Calculated position weight matrices for all the classes are saved to pair_matrix and single_matrix directories. 
-		Matrices in pair_matrix directory include correlations between neighbouring nucleotides. 
-		Matrices in single_matrix directory are simple position weight matrices. 
-		All matrices are saved in JSON and as a numpy dump. 
-		When new matrix appears in the folder, previous one is fully calculated. 
-		For example, when last matrix in pair_matrix folder is 1.pair_matrix.json, then 0.pair_matrix.json is ready for use.
-
-		journal.txt contains class volumes for each of n_sets on each iteration.
-		overfit.txt contains only best class volumes for each of classes. 
-
-		As an example:
-		0
-		880   7623   8.662
-		986   7732   7.842
-		1170   9487   8.109
-		1173   8833   7.530
+	Creates files with mixed chromosomes for false positive level estimation.
 
 
+python3 promoter_database_sort.py
 
-		1
-		224   1272   5.679
-		225   1176   5.227
-
-		Here, 0 is number of class. 
-		First column contains best volumes for the 0 class when scanning learn sample from database_filename. 
-		Second column contains volumes for the 0 class when scanning full extended_database_filename with the same matrix, which achieved the result from first column. 
-		Third column value is fraction between second column value and first column value. 
-		When class calculation is finished, calculation of the next class starts.
+	Sorts Promoter database and Extended promoter database in the same order.
 
 
-	pypy3 z_statistics.py
+python3 genetic_partition_extended.py
 
-		Calculates Monte Carlo statistics for potential promoters Z value estimation.
+	Creates promoter sequences classes and their matrices.
+
+	Calculated position weight matrices for all the classes are saved to pair_matrix and single_matrix directories. 
+	Matrices in pair_matrix directory include correlations between neighbouring nucleotides. 
+	Matrices in single_matrix directory are simple position weight matrices. 
+	All matrices are saved in JSON and as a numpy dump. 
+	When new matrix appears in the folder, previous one is fully calculated. 
+	For example, when last matrix in pair_matrix folder is 1.pair_matrix.json, then 0.pair_matrix.json is ready for use.
+
+	journal.txt contains class volumes for each of n_sets on each iteration.
+	overfit.txt contains only best class volumes for each of classes. 
+
+	As an example:
+	0
+	880   7623   8.662
+	986   7732   7.842
+	1170   9487   8.109
+	1173   8833   7.530
 
 
-	pypy3 promoter_search.py chromosome spiral matrix
 
-		Scans chromosome for potential promoters.
+	1
+	224   1272   5.679
+	225   1176   5.227
 
-		chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chromosome ≤ N ≤ max_chromosome).
-		spiral: 1 -- + strand, standard order
-			2 -- + strand, reversed order
-			3 -- - strand, standard order
-			4 -- - strand, reversed order
-		matrix: class matrix number (0, 1, ...)
-
-		Results are saved to results/chromosome_number/spiral
+	Here, 0 is number of class. 
+	First column contains best volumes for the 0 class when scanning learn sample from database_filename. 
+	Second column contains volumes for the 0 class when scanning full extended_database_filename with the same matrix, which achieved the result from first column. 
+	Third column value is fraction between second column value and first column value. 
+	When class calculation is finished, calculation of the next class starts.
 
 
-	pypy3 results_rank_intersect.py chromosome spiral
+pypy3 z_statistics.py
 
-		Removes intersecting results.
-		
-		Intersected results are saved to results/chromosome_number
+	Calculates Monte Carlo statistics for potential promoters Z value estimation.
+
+
+pypy3 promoter_search.py chromosome spiral matrix
+
+	Scans chromosome for potential promoters.
+
+	chromosome: chromosome number or mixed chromosome number (N or mix.N , min_chromosome ≤ N ≤ max_chromosome).
+	spiral: 1 -- + strand, standard order
+		2 -- + strand, reversed order
+		3 -- - strand, standard order
+		4 -- - strand, reversed order
+	matrix: class matrix number (0, 1, ...)
+
+	Results are saved to results/chromosome_number/spiral
+
+
+pypy3 results_rank_intersect.py chromosome spiral
+
+	Removes intersecting results.
+
+	Intersected results are saved to results/chromosome_number
 
 
 ## WARNING
