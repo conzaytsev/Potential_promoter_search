@@ -131,93 +131,82 @@ It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chro
 
 
 ## PARAMETERS
-	| `min_chromosome` | smallest chromosome number                                      |
-	| `max_chromosome` | largest chromosome number                                       |
-	|                  | Only numerical chromosome names can be used.                    | 
-	|                  | For Human genome X chromosome was designated as 23 and Y as 24. |
+min_chromosome -- smallest chromosome number.
 
-	| `chromosome_filename` | name of chromosome files before the number.
+max_chromosome -- largest chromosome number. 
+Only numerical chromosome names can be used. 
+For Human genome X chromosome was designated as 23 and Y as 24.
 
-	| `chromosome_extension` | name of chromosome files after the number. 
-	(Full name should be chromosome_filename + number + chromosome_extension)
+chromosome_filename -- name of chromosome files before the number.
 
-	| `promoter_database_filename` | file with promoter database in FASTA format. 
-	All promoters should have coordinates from -499 to 100.
+chromosome_extension -- name of chromosome files after the number. 
+(Full name should be chromosome_filename + number + chromosome_extension)
 
-	| `extended_promoter_database_filename` | file with FASTA promoter database. 
-	Promoters should have coordinates from -499 + start_coordinate - extension to end_coordinate - 500 + extension. 
-	Promoters in this database should be sorted in the same order, as promoters from database_filename.
+promoter_database_filename -- file with promoter database in FASTA format. 
+All promoters should have coordinates from -499 to 100.
 
-	| `mahds_login` | login for MAHDS server.
+extended_promoter_database_filename -- file with FASTA promoter database. 
+Promoters should have coordinates from -499 + start_coordinate - extension to end_coordinate - 500 + extension. 
+Promoters in this database should be sorted in the same order, as promoters from database_filename.
 
-	| `mahds_password` | password for MAHDS server.
+mahds_login -- login for MAHDS server.
 
-	| `classifier_mixed_chromosome` | mixed chromosome number. 
-	Mixed chromosome is used to calculate statistical significance value. 
+mahds_password -- password for MAHDS server.
 
-	| `n_sets` | number of promoter sets for genetic algorithm.
+classifier_mixed_chromosome -- mixed chromosome number. 
+Mixed chromosome is used to calculate statistical significance value. 
 
-	| `set_size` | number of promoters in each set.
+n_sets -- number of promoter sets for genetic algorithm.
 
-	| `n_children` | number of new sequence sets generated on each iteration of the algorithm.
+set_size -- number of promoters in each set.
 
-	| `mut_per` | percentage of mutations in each new set.
+n_children -- number of new sequence sets generated on each iteration of the algorithm.
 
-	| `mut_bal` | balance between type 1 and 2 mutations in new sets. 
-	0 -> all mutations are type 1, 100 -> all mutations are type 2.
+mut_per -- percentage of mutations in each new set.
 
-	| `Kd` | normalization parameter for position weight matrices.
+mut_bal -- balance between type 1 and 2 mutations in new sets. 
+0 -> all mutations are type 1, 100 -> all mutations are type 2.
 
-	| `R2` | normalization parameter for position weight matrices.
+Kd -- normalization parameter for position weight matrices.
 
-	| `learn_partition` | maximum volume of learn database sample as a fraction of full database volume.
+R2 -- normalization parameter for position weight matrices.
 
-	| `min_set` | minimum volume of learn database sample as number of sequences.
+learn_partition -- maximum volume of learn database sample as a fraction of full database volume.
 
-	| `iteration_limit` | number of algorithm iterations without improvement for stopping class selection.
+min_set -- minimum volume of learn database sample as number of sequences.
 
-	| `start_coordinate` | coordinate of the first nucleotide for position weight matrix calculation as its position in sequence (0..599).
+iteration_limit -- number of algorithm iterations without improvement for stopping class selection.
 
-	| `end_coordinate` | coordinate of the last nucleotide for position weight matrix calculation as its position in sequence (0..599).
+start_coordinate -- coordinate of the first nucleotide for position weight matrix calculation as its position in sequence (0..599).
 
-	| `extension` | half difference between extended_database_filename sequences length and end_coordinate - start_coordinate.
+end_coordinate -- coordinate of the last nucleotide for position weight matrix calculation as its position in sequence (0..599).
 
-	| `intersection_level` | minimum intersection between extended aligned sequence and its -499:20 coordinates as a fraction of its length.
+extension -- half difference between extended_database_filename sequences length and end_coordinate - start_coordinate.
 
-	| `classes` | number of classes, created by genetic_partition_extended.py and used for potential promoters search.
+intersection_level -- minimum intersection between extended aligned sequence and its -499:20 coordinates as a fraction of its length.
 
-	| `z_statistics_sample_size` | volume of generated statistics for statistical significance calculation.
+classes -- number of classes, created by genetic_partition_extended.py and used for potential promoters search.
 
-	| `gap_start_fine` | gap for starting a gap in a sequence to position weight matrix alignment.
+z_statistics_sample_size -- volume of generated statistics for statistical significance calculation.
 
-	| `gap_continue_fine` | gap for continuing an open gap in a sequence to position weight matrix alignment.
+gap_start_fine -- gap for starting a gap in a sequence to position weight matrix alignment.
 
-	| `query_length` | length of the window for chromosome scanning.
+gap_continue_fine -- gap for continuing an open gap in a sequence to position weight matrix alignment.
 
-	| `min_length` | minimum alignment length for class selection.
+query_length -- length of the window for chromosome scanning.
 
-	| `z_threshold` | minimum statistical significance value for class definition.
+min_length -- minimum alignment length for class selection.
 
-	| `database_corridor_width` | width of the corridor for alignments with sequences from promoter_database_filename. 
-	Maximum distance from main diagonal. 
-	Used for scanning database_filename.
+z_threshold -- minimum statistical significance value for class definition.
 
-	| `extended_corridor_width` | width of the corridor for alignments with sequences from extended_promoter_database_filename.
+database_corridor_width -- width of the corridor for alignments with sequences from promoter_database_filename. 
+Maximum distance from main diagonal. 
+Used for scanning database_filename.
 
-	| `chromosome_corridor_width` | width of the corridor for potential promoters search in chromosomes.
+extended_corridor_width -- width of the corridor for alignments with sequences from extended_promoter_database_filename.
 
-	| `cores` | number of threads used for calculation.
-	Used in genetic_partition_extended.py, z_statistics.py, parallel_promoter_search.py.
+chromosome_corridor_width -- width of the corridor for potential promoters search in chromosomes.
 
-| Short | Full           | Description                                                               | Default Value              |
-| ----- | -------------- | ------------------------------------------------------------------------- | -------------------------- |
-| `-p`  | `--port`       | The port of the printing server that clients will be connect to           | 631                        |
-| `-n`  | `--name`       | The name of the printer that will be broadcasts to the local network      | "Untitled Bonjour Printer" |
-| `-l`  | `--location`   | The notes which will be shown as the location of the printer              | ""                         |
-| `-q`  | `--queue`      | The queue on the printing server which clients will be communicating with | "ipp/print"                |
-| `-c`  | `--color`      | Broadcast this printer as a color printer                                 | false                      |
-| `-d`  | `--duplex`     | Broadcast this printer as duplex supported                                | false                      |
-| `-m`  | `--mime-types` | Specify additional supported MIME types beside 'image/urf'.               |                            |
-| `-o`  | `--txt-record` | Add additional txt records. (E.g. -o you=me)                              |                            |
-| `-h`  | `--help`       | Show help message                                                         |                            |
-| `-a`  | `--automatic`  | Automatically resolve and configure printer from ip address               | false                      |
+cores -- number of threads used for calculation.
+Used in genetic_partition_extended.py, z_statistics.py, parallel_promoter_search.py.
+
