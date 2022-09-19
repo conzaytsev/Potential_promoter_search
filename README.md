@@ -131,16 +131,16 @@ It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chro
 
 
 ## PARAMETERS
-min_chromosome -- smallest chromosome number.
+`min_chromosome` -- smallest chromosome number.
 
-max_chromosome -- largest chromosome number. 
-Only numerical chromosome names can be used. 
-For Human genome X chromosome was designated as 23 and Y as 24.
+`max_chromosome` -- largest chromosome number. 
+                    Only numerical chromosome names can be used. 
+                    For Human genome X chromosome was designated as 23 and Y as 24.
 
-chromosome_filename -- name of chromosome files before the number.
+`chromosome_filename` -- name of chromosome files before the number.
 
-chromosome_extension -- name of chromosome files after the number. 
-(Full name should be chromosome_filename + number + chromosome_extension)
+`chromosome_extension` -- name of chromosome files after the number. 
+                          (Full name should be chromosome_filename + number + chromosome_extension)
 
 promoter_database_filename -- file with promoter database in FASTA format. 
 All promoters should have coordinates from -499 to 100.
