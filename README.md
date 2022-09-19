@@ -131,10 +131,10 @@ It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chro
 
 
 ## PARAMETERS
-	| `min_chromosome` | smallest chromosome number
-	| `max_chromosome` | largest chromosome number
-	|                  | Only numerical chromosome names can be used. 
-	|                  | For Human genome X chromosome was designated as 23 and Y as 24.
+	| `min_chromosome` | smallest chromosome number                                      |
+	| `max_chromosome` | largest chromosome number                                       |
+	|                  | Only numerical chromosome names can be used.                    | 
+	|                  | For Human genome X chromosome was designated as 23 and Y as 24. |
 
 	| `chromosome_filename` | name of chromosome files before the number.
 
