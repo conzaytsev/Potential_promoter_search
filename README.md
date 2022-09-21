@@ -126,7 +126,7 @@ Intersected results are saved to results/chromosome_number
 ## WARNING
 genetic_partition_extended.py and parallel_promoter_search.py require a lot of resources and lots of time.
 All of these were run on a system with 4 x Intel Xeon Platinum 8270 (104 cores in total). 
-It took about 2 weeks to create promoter classes and 4 weeks to scan all 24 chromosomes.
+It took about 2 weeks to create human promoter classes and 4 weeks to scan all 24 chromosomes.
 
 
 
